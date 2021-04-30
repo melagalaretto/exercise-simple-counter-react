@@ -1,24 +1,46 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
-export function Home() {
+export function Home(props) {
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		/* Animo :) vos podes, yo creo en vos */
+		<div className="container bg-dark text-white" id="contenedor">
+			<div className="row">
+				<div className="col-2 h2 text-center" id="clock">
+					<i className="fas fa-clock"></i>
+				</div>
+				<div id="ultseg">
+					<h1>{props.seis % 10}</h1>
+				</div>
+				<div>
+					<h1>{props.cinco % 10}</h1>
+				</div>
+				<div>
+					<h1>{props.cuatro % 10}</h1>
+				</div>
+				<div>
+					<h1>{props.tres % 10}</h1>
+				</div>
+				<div>
+					<h1>{props.dos % 10}</h1>
+				</div>
+				<div>
+					<h1>{props.uno % 10}</h1>
+				</div>
+			</div>
 		</div>
 	);
 }
+
+Home.propTypes = {
+	uno: PropTypes.number,
+	dos: PropTypes.number,
+	tres: PropTypes.number,
+	cuatro: PropTypes.number,
+	cinco: PropTypes.number,
+	seis: PropTypes.number
+};
